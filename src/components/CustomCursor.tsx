@@ -1,20 +1,28 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Ultra-performant spring tracking (bypasses React state completely for movement)
+  const springX = useSpring(mouseX, { stiffness: 1000, damping: 40, mass: 0.1 });
+  const springY = useSpring(mouseY, { stiffness: 1000, damping: 40, mass: 0.1 });
 
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      if (!isVisible) setIsVisible(true);
+      mouseX.set(e.clientX - 16); // Center the 32px cursor
+      mouseY.set(e.clientY - 16);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      // Check if the hovered element is a button, link, or has cursor-pointer
       if (
         target.tagName.toLowerCase() === "button" ||
         target.tagName.toLowerCase() === "a" ||
@@ -35,22 +43,25 @@ export default function CustomCursor() {
       window.removeEventListener("mousemove", updateMousePosition);
       window.removeEventListener("mouseover", handleMouseOver);
     };
-  }, []);
+  }, [mouseX, mouseY, isVisible]);
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[100] backdrop-blur-sm bg-white/10 border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.1)] flex items-center justify-center"
+      className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[100] backdrop-blur-sm border shadow-[0_0_15px_rgba(255,255,255,0.1)] flex items-center justify-center"
+      style={{
+        x: springX,
+        y: springY,
+        opacity: isVisible ? 1 : 0, // Hide until mouse moves
+      }}
       animate={{
-        x: mousePosition.x - 16, // Center the 32px (w-8) circle perfectly on the mouse tip
-        y: mousePosition.y - 16,
         scale: isHovering ? 1.5 : 1,
         backgroundColor: isHovering ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0.1)",
+        borderColor: isHovering ? "rgba(255, 255, 255, 0.4)" : "rgba(255, 255, 255, 0.2)"
       }}
       transition={{
-        type: "spring",
-        stiffness: 1000,
-        damping: 40,
-        mass: 0.1,
+        scale: { type: "spring", stiffness: 400, damping: 30 },
+        backgroundColor: { duration: 0.2 },
+        borderColor: { duration: 0.2 }
       }}
     >
       {/* Inner dot */}
