@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+/* Hide native cursor globally to replace with custom animated cursor */
+* {
+  cursor: none !important;
+}
+
+/* Custom visualizer bars styling */
+.visualizer-bar {
+  width: 3px;
+  background-color: theme('colors.primary');
+  border-radius: 2px;
+  transform-origin: bottom;
+}
