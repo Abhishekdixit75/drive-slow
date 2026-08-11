@@ -6,6 +6,8 @@
   **Lofi radio for late nights. Slow drives. Soft vibes.**
 
   <br/>
+  <a href="https://drive-slow-wdij.vercel.app/" target="_blank">Listen Live</a>
+  <br/>
 
   <p>
     <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-14-black?style=flat&logo=next.js" alt="Next.js"></a>
