@@ -33,8 +33,8 @@ export default function About() {
       {/* Background Image Setup */}
       <div className="absolute inset-0 z-0 bg-[#1a1625]" aria-hidden="true">
         <Image
-          src="/bg.png"
-          alt="Lofi radio aesthetic background with a red car at night"
+          src="/bg2.png"
+          alt="Lofi radio aesthetic background with a retro computer in a grassy field"
           fill
           priority
           quality={85}

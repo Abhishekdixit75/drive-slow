@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "DriveSlow",
     images: [
       {
-        url: "/bg.png",
+        url: "/bg2.png",
         width: 1200,
         height: 630,
         alt: "DriveSlow Lofi Radio",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DRIVESLOW | Lofi Radio",
     description: "Lofi radio for late nights. Slow drives. Soft vibes.",
-    images: ["/bg.png"],
+    images: ["/bg2.png"],
   },
   viewport: {
     width: "device-width",
