@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * Custom hardware-accelerated cursor component using Framer Motion.
+ * Bypasses standard React state for ultra-smooth, zero-latency cursor tracking.
+ */
+
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 

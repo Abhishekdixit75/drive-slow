@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * Core React Context provider for audio state.
+ * Manages the global HTML5 audio player, handles the Media Session API, persists preferences to localStorage, and ensures music continues playing across page navigation.
+ */
+
 import { createContext, useContext, useState, useEffect, useRef, ReactNode } from "react";
 import { Station, RadioContextType } from "@/types/radio";
 import { LOCAL_STORAGE_KEYS } from "@/config/constants";

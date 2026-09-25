@@ -1,3 +1,6 @@
+/**
+ * Custom hook for fetching and managing the list of radio stations from the Radio Browser API.
+ */
 import { useState, useEffect } from "react";
 
 export function useRadioStream(tag: string = "lofi") {

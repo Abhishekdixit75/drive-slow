@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * A canvas-based atmospheric rain effect component.
+ * Renders an animated rain overlay when activated.
+ */
+
 import { useEffect, useRef } from "react";
 
 export default function Rain({ isRaining }: { isRaining: boolean }) {

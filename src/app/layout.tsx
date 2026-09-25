@@ -1,26 +1,39 @@
+/**
+ * Root layout component that wraps the entire application.
+ * It sets up global fonts, initializes the CustomCursor, and wraps children with global Context Providers.
+ */
 import type { Metadata } from "next";
 import { Inter, Bebas_Neue, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import Providers from "@/components/Providers";
 
-const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
-const bebasNeue = Bebas_Neue({ 
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const bebasNeue = Bebas_Neue({
   weight: "400",
-  subsets: ["latin"], 
-  variable: '--font-bebas-neue' 
+  subsets: ["latin"],
+  variable: "--font-bebas-neue",
 });
 
 const greatVibes = Great_Vibes({
   weight: "400",
   subsets: ["latin"],
-  variable: '--font-great-vibes'
+  variable: "--font-great-vibes",
 });
 
 export const metadata: Metadata = {
   title: "DRIVESLOW | Lofi Radio",
-  description: "Lofi radio for late nights. Slow drives. Soft vibes. 24/7 streaming to calm your mind.",
-  keywords: ["lofi", "radio", "music", "late night", "study beats", "chillhop", "driveslow"],
+  description:
+    "Lofi radio for late nights. Slow drives. Soft vibes. 24/7 streaming to calm your mind.",
+  keywords: [
+    "lofi",
+    "radio",
+    "music",
+    "late night",
+    "study beats",
+    "chillhop",
+    "driveslow",
+  ],
   authors: [{ name: "DriveSlow Team" }],
   openGraph: {
     title: "DRIVESLOW | Lofi Radio",
@@ -45,10 +58,10 @@ export const metadata: Metadata = {
     images: ["/bg.png"],
   },
   viewport: {
-    width: 'device-width',
+    width: "device-width",
     initialScale: 1,
     maximumScale: 1, // Prevents zooming on mobile which breaks app-like feel
-  }
+  },
 };
 
 export default function RootLayout({
@@ -58,11 +71,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${bebasNeue.variable} ${greatVibes.variable} font-sans antialiased bg-black text-white`}>
+      <body
+        className={`${inter.variable} ${bebasNeue.variable} ${greatVibes.variable} font-sans antialiased bg-black text-white`}
+      >
         <CustomCursor />
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

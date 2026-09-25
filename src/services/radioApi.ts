@@ -1,3 +1,7 @@
+/**
+ * Service layer for interacting with external radio streaming APIs.
+ * Contains the fetch logic and fallback handling if primary streams fail.
+ */
 import { Station } from "@/types/radio";
 import { API_CONFIG, FALLBACK_STATIONS } from "@/config/constants";
 

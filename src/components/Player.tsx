@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * UI component for the main radio player.
+ * Displays playback controls, volume slider, current station, and handles user interactions.
+ */
+
 import { Play, Pause, SkipForward, Headphones, Instagram, Twitter, Music2, Volume2, VolumeX, Radio } from "lucide-react";
 import { useRadio } from "@/context/RadioContext";
 

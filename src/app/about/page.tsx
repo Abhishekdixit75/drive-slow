@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * About page component.
+ * Displays project information, tech stack, and links using Framer Motion for entrance animations.
+ */
+
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";

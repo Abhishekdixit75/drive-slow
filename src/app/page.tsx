@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * Main landing page component.
+ * It brings together the Radio Player, the Rain visual effects, and handles page transition animations.
+ */
+
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
